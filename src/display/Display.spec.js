@@ -8,15 +8,19 @@ test('Display renders correctly', () => {
     const { getByText } = render(<Display />);
 
     // * GATE
-    getByText('Open', { exact: true })
-    getByText('Unlocked', { exact: true })
+    const open = getByText('Open', { exact: true })
+    const unlocked = getByText('Unlocked', { exact: true })
+
+    // ? EXPECTATIONS
+    expect(!!open).toBe(true)
+    expect(!!unlocked).toBe(true)
 
     // ! LOG DATA TO TERMINAL
     if (
-        !!getByText('Open', { exact: true }) === true
+        !!open === true
         &&
-        !!getByText('Unlocked', { exact: true }) === true
+        !!unlocked === true
     ) {
-        console.log('Gate is currently open and unlocked!');
+        return console.log('Gate is currently open and unlocked!!');
     }
 });
