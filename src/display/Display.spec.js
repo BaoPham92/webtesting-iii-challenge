@@ -12,7 +12,11 @@ test('Display renders correctly', () => {
     getByText('Unlocked', { exact: true })
 
     // ! LOG DATA TO TERMINAL
-    if (!!getByText('Open') === true && !!getByText('Unlocked') === true) {
+    if (
+        !!getByText('Open', { exact: true }) === true
+        &&
+        !!getByText('Unlocked', { exact: true }) === true
+    ) {
         console.log('Gate is currently open and unlocked!');
     }
 });
